@@ -1,0 +1,93 @@
+Let's take a look at command line basics: ls and cd
+
+ls and cd are two of the most commonly used commands.
+
+Let's take a look.
+
+If I run ls with no arguments, it's going to display the contents of the current working directory.
+
+So, we have just seen that in this directory, there is a single subdirectory called Homeworks.
+
+ls also accepts an argument.
+
+When I provide an argument to ls, it will list the contents of that directory rather than the current directory.
+
+So here we see there are several subdirectories within the /usr directory.
+
+Let's take a look at the root.
+
+So this is the root of the file system.
+
+Now let's take a look at cd.
+
+cd is used to change directories.
+
+So currently I am in my home directory.
+
+We can verify this by running pwd to print the current working directory.
+
+We see that this is my home directory.
+
+Now let's use cd to change to a different directory.
+
+So let's go to /usr
+
+Now, if I run ls with no commands, with no parameters, it's going to print the contents of the current working directory, which is /usr.
+
+If I run cd with no arguments, it will take me back to my home directory.
+
+So keep in mind that both cd and ls can be run with no parameters.
+
+If ls is run with no parameters, it will print the contents of the current working directory. 
+
+If cd is run with no parameters, it will take you to your home directory.
+
+If ls is run with a parameter, it will display the contents of that directory.
+
+If cd is run with a parameter, you will change to that directory, and the directory that you provided as the argument will become your new current working directory.
+
+So just now, I used cd to change to a directory called /bin, and once inside that directory, I ran ls to list the contents.
+
+This directory contains a lot of executable files. 
+
+Now let's go back to our home directory, and look at the manual page for ls.
+
+ls has quite a few options.
+
+Many of them, you'll never use but there are a few that are definitely very useful.
+
+To begin with let's take a look at the -a command.
+
+Looking at the manual, you can see that by default ls will ignore entries whose names begin with a period.
+
+In the home directory, we run ls and it appears that there is only one item.
+
+We run ls -a, we see that there are in fact a number of additional files that begin with the period. 
+
+These files are all ignored unless the -a flag is provided to ls.
+
+-a and --all are two ways of typing the same thing.
+
+You can see this in the manual page; that they are provided on the same line.
+
+And that's the way, that's the correct way to interpret items like this in a manual page.
+
+That when the flags are on the same line, that means that's two ways of specifying the same thing.
+
+So let's take a look at some other options of ls.
+ 
+One very commonly used flag is the -l flag, for long listing format.
+
+ls -l is going to provide us with additional pieces of information, including the permissions of the file, the owner of the file, the group of the file, the size of the file, and the date and time that the file was accessed or created.
+
+Another flag commonly used in conjunction with the -l flag is -h.
+
+-h prints the file sizes in human readable format
+
+Note that when I'm providing I can bunch them together, or separate them out, and note that we have a difference here. 
+
+We've gone from 4096 to 4.0 kilobytes.
+
+There is a large number of options for ls, and sometimes it's useful to ask ls to sort by file size, and other options.
+
+That's all for now.

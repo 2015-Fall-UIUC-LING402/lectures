@@ -1,0 +1,71 @@
+Let's take a look at command line basics: 
+
+Using echo to print simple strings
+
+echo is typically used to display a single line of text.
+
+$ echo "Hello, world"
+
+Hello, world
+
+Here, the message was "Hello, world". 
+
+echo prints this message to standard output.
+
+Notice that the message was not printed until after the Enter key was been pressed.
+
+While it may not always be necessary 
+
+to enclose the message within quotation marks, 
+
+doing so is good practice.
+
+Let's use echo to display another simple message.
+
+$ echo "In a hole in the ground, there lived a hobbit."
+
+In a hole in the ground, there lived a hobbit.
+
+As you can see, the message we gave to echo is printed to standard output.
+
+It is possible to redirect the standard output stream to a file, or use a pipe to send it as input to another process.
+
+In this case, we aren't doing either of those things.
+
+As a result, we see the default behavior, where messages sent to standard output are displayed on the terminal.
+
+Let's use echo to display some more simple messages.
+
+$ echo "The road goes ever on and on,"
+
+The road goes ever on and on.
+
+$ echo "Down from the door where it began."
+
+Down from the door where it began.
+
+$ echo "Now far ahead the road has gone,"
+
+Now far ahead the road has gone,
+
+$ echo "And I must follow, if I can,"
+
+And I must follow, if I can,
+
+$ echo "Pursuing it with eager feet,"
+
+Pursuing it with eager feet,
+
+$ echo "Until it joins some larger way"
+
+Until it joins some larger way
+
+$ echo "Where many paths and errands meet."
+
+Where many paths and errands meet.
+
+$ echo "And whither then? I cannot say."
+
+And whither then? I cannot say.
+
+

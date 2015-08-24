@@ -1,0 +1,135 @@
+Let's take a look at shell script basics: positional parameters
+
+When writing shell scripts, there is often a need to accept one or more command line parameters from the user at the time the script is executed.
+
+Let's create a very basic shell script. This script will print a simple message.
+
+$ emacs hello.sh
+
+#!/bin/bash
+
+echo "Hello, world"
+
+
+In order to run a new script, we have to modify the permission settings for the script file to enable the script to be executed.
+
+chmod ug+x hello.sh
+
+This command enables execution permission for the user and group associated with the file. Next, let's try running the script
+
+$ ./hello.sh
+
+Hello, world
+
+The script ran, printing our simple message. Now let's take a look at our first positional parameter: $0. Within a shell script, $0 contains the name of the shell script, as it was called when the script was executed.
+
+$ emacs hello.sh
+
+#!/bin/bash
+
+echo "Hello, world"
+echo
+echo "This script is called $0"
+
+$ ./hello.sh
+
+Hello, World
+
+./hello.sh
+
+We see that our script successfully obtained and printed the name of the script. 
+
+$ /home/lanes/hello.sh
+
+If we call the script with an absolute path, $0 will contain the value of that full absolute path.
+
+
+Now let's modify the script to accept an additional command line argument:
+
+$ emacs hello.sh
+
+#!/bin/bash
+
+echo "Hello, $1"
+
+After making this modification, our script will now accept a single command line argument. 
+
+$ ./hello.sh Lane
+
+Note that bash processed the provided command line argument and made it available to our script as a variable. We didn't have to declare the variable. Bash does that for us. Let's look at that script again:
+
+$ emacs hello.sh
+
+#!/bin/bash
+
+echo "Hello, $1"
+
+
+The value of the command line argument can be accessed using the $1 variable.
+
+Shell scripts can accept more than one argument.
+
+$ emacs hello.sh
+
+#!/bin/bash
+
+echo "Hello, is your name $1 or $2?"
+
+$ ./hello.sh Brittney Justin
+
+Hello, is your name Brittney or Justin?
+
+Bash supports multiple positional parameters.
+
+$ emacs hello.sh
+
+echo "Hello, world"
+echo
+echo "Argument 0 is '$0'"
+echo "Argument 1 is '$1'"
+echo "Argument 2 is '$2'"
+echo "Argument 3 is '$3'"
+echo "Argument 4 is '$4'"
+echo "Argument 5 is '$5'"
+echo "Argument 6 is '$6'"
+echo "Argument 7 is '$7'"
+echo "Argument 8 is '$8'"
+echo "Argument 9 is '$9'"
+
+$ ./hello.sh a b c d e f g h i j k l m n o p q r s t u v w x y z
+
+Bash actually supports more than 9 positional parameters. However, to access them you will need to use the curly brace syntax for accessing bash variables. Instead of simply typing $ and then the variable name, the variable name is surrounded by curly braces.
+
+$ emacs hello.sh
+
+echo "Hello, world"
+echo
+echo "Argument 0 is '$0'"
+echo "Argument 1 is '$1'"
+echo "Argument 2 is '$2'"
+echo "Argument 3 is '$3'"
+echo "Argument 4 is '$4'"
+echo "Argument 5 is '$5'"
+echo "Argument 6 is '$6'"
+echo "Argument 7 is '$7'"
+echo "Argument 8 is '$8'"
+echo "Argument 9 is '$9'"
+echo "Argument 10 is '${10}'"
+
+We can also ask bash how many positional parameters were supplied by the user. This information is provided by the $# variable.
+
+$ emacs hello.sh
+
+echo "Hello, world. This script was called with $# parameters."
+echo
+echo "Argument 0 is '$0'"
+echo "Argument 1 is '$1'"
+echo "Argument 2 is '$2'"
+echo "Argument 3 is '$3'"
+echo "Argument 4 is '$4'"
+echo "Argument 5 is '$5'"
+echo "Argument 6 is '$6'"
+echo "Argument 7 is '$7'"
+echo "Argument 8 is '$8'"
+echo "Argument 9 is '$9'"
+echo "Argument 10 is '${10}'"

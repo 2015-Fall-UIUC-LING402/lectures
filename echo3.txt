@@ -1,0 +1,102 @@
+Let's take a look at command line basics: 
+
+Using echo to display messages with escape sequences
+
+echo is typically used to display plain text messages.
+
+However, echo can be used to print messages that include special characters.
+
+Let's start by using echo to print a simple message consisting of a single line of text.
+
+$ echo "He didn't fall? Inconceivable."
+
+He didn't fall? Inconceivable.
+
+Now let's try again, but this time we're going to include something new, and to do so, we're going to take a look at the documentation for echo.
+
+The documentation for most commands is found by accessing the command's manual pages using the command man. But echo is special. Echo is a bash builtin command.
+
+The documentation for bash builtin commands is obtained using the command help.
+
+$ help echo
+
+By reading the bash help page, we can observe that echo is capable of reading a number of backslash-escaped characters. A backslash-escaped character is just a character that is immediately preceded by a backslash character.
+
+Of the backslash escape sequences you see here, it's likely that you'll only ever need to use one or two of them. The two that we'll examine here are the escape sequences for new line, \n, and for horizontal tab, \t.
+
+Now, let's try printing our message again. However, this time, instead of placing a space between the two sentences, we're going try to place a tab character between two the sentences. Recall that the escape sequence for a horizontal tab character is \t.
+
+$ echo "He didn't fall?\tInconceivable."
+
+He didn't fall?\tInconceivable
+
+What just happened? The escape sequence \t represents a horizontal tab character. We wanted echo to replace \t with an actual tab character.
+
+Let's take another look at the help page for echo. In the above invocation of echo, we did not use any options. Notice that echo has an option, -e, that does exactly what we want. If echo is called with the -e option, then echo will replace the escape sequence with its corresponding literal character.
+
+Let's try again, this time using the -e flag.
+
+$ echo -e "He didn't fall?\tInconceivable."
+
+He didn't fall?	Inconceivable
+
+It looks like there is a space character between the sentences, but it's actually a tab. To see the difference more clearly, let's try again, but this time let's add another tab.
+
+$ echo -e "He didn't fall?\t\tInconceivable."
+
+He didn't fall?		Inconceivable
+
+Now we can see a difference. Let's try again, with three tabs.
+
+$ echo -e "He didn't fall?\t\t\tInconceivable."
+
+He didn't fall?			Inconceivable
+
+Compare that to the same thing, but with three spaces between the sentences.
+
+$ echo -e "He didn't fall?   Inconceivable."
+
+He didn't fall?   Inconceivable
+
+Now let's try again, using the escape sequence for a new line, \n.
+
+$ echo -e "He didn't fall?\tInconceivable."
+
+He didn't fall?	Inconceivable
+
+Whoops. I did \t again. Let's try again, with \n.
+
+$ echo -e "He didn't fall?\nInconceivable."
+
+He didn't fall?
+Inconceivable
+
+Now let's add another new line.
+
+$ echo -e "He didn't fall?\n\nInconceivable."
+
+He didn't fall?
+
+Inconceivable
+
+And now again, with three new line characters.
+
+$ echo -e "He didn't fall?\n\n\nInconceivable."
+
+He didn't fall?
+
+
+Inconceivable
+
+By using escape sequences, we can use echo to print a multi-line message, even while we enter the command using a single line.
+
+$ echo "He didn't fall?\nInconceivable.\nYou keep using that word.\nI do not think it means what you think it means."
+
+He didn't fall?
+Inconceivable.
+You keep using that word.
+I do not think it means what you think it means.
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.

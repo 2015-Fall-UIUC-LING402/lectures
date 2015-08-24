@@ -1,0 +1,110 @@
+Let's take a look at command line basics: 
+
+Using cd to navigate to a directory using a relative path
+
+Let's take a look at where we are - the current working directory.
+
+$ pwd
+/home/lanes
+
+Now let's use ls to view the contents of the current working directory.
+
+$ ls
+baz foo Homework kenlm
+
+We can use the bash builtin command cd to change directories.
+
+$ help cd
+
+To use cd, we provide the name of the directory into which we wish to navigate.
+
+$ cd baz
+
+Let's use pwd to verify that we have changed directories.
+
+$ pwd
+/home/lanes/baz
+
+Notice that in the above invocation of cd, we only specified the name baz. We did not type /home/lanes/baz. This style of referring to a directory by only part of its name shows the use of cd using a relative path. The absolute path in this case would be /home/lanes/baz. The relative path that we used was simply baz. Because we were located in the directory /home/lanes at the time we invoked cd, the part of the path corresponding to the current directory can be omitted through the use of a relative path.
+
+There are two special relative path components, . and ..
+
+. refers to the current working directory.
+
+.. refers to the parent of the current working directory.
+
+Let's recall where we are.
+
+$ pwd
+/home/lanes/baz
+
+The current working directory, baz, is located within the directory lanes. We could refer to the parent directory by its absolute path /home/lanes, or we could refer to it as ..
+
+Let's use cd and .. to navigate to the parent of the current working directory.
+
+$ cd ..
+
+$ pwd
+/home/lanes
+
+Let's practice some more.
+
+$ cd foo
+
+$ pwd
+/home/lanes/foo
+
+$ cd .
+
+$ pwd
+/home/lanes/foo
+
+What just happened? We told cd to navigate to .
+
+. is another name for the current working directory. Consequently, we stayed in the same current working directory. In other words, we didn't go anywhere.
+
+$ cd ../..
+
+$ pwd
+/home
+
+What just happened? We were in /home/lanes/foo. We used .. twice. From /home/lanes/foo, .. would refer to the parent directory /home/lanes. But we used the relative path ../.. 
+
+If .. is the parent, then ../.. is the parent of the parent. In this case, the parent of /home/lanes is /home. So, invoking cd ../.. from /home/lanes/foo takes us to /home.
+
+$ cd lanes/kenlm
+
+$ pwd
+/home/lanes/kenlm
+
+Notice what we just did. We used a relative path lanes/kenlm to navigate from /home to /home/lanes/kenlm.
+
+We could instead have called cd twice, but this way was faster. Let's go back, and see the slower way.
+
+$ cd ../..
+
+$ pwd
+/home
+
+Now, let's use cd to navigate one directory at a time.
+
+$ cd lanes
+$ cd kenlm
+$ pwd
+/home/lanes/kenlm
+
+$ cd ..
+
+$ pwd
+/home/lanes
+
+Just as we can use ls to look into subdirectories, we can also use cd to navigate directly into subdirectories.
+
+$ ls kenlm
+$ ls kenlm/util
+$ ls kenlm/util/stream
+
+$ cd kenlm/util/stream
+$ pwd
+/home/lanes/kenlm/util/stream
+

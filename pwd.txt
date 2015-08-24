@@ -1,0 +1,24 @@
+Let's take a look at command line basics: pwd
+
+pwd is one of the simple commands that you need to learn
+
+pwd stands for print working directory
+
+This command gives us the location where we're currently located in the directory structure
+
+Let's take a look at the manual page
+
+pwd prints the name of the current working directory
+
+There are a couple of options, which you usually won't need to use.
+
+When we run pwd, currently, we see that I am in my home directory
+
+We can explore other places in the file system and use pwd to identify where we are.
+
+Let's use the cd command to go somewhere else.
+
+Let's try a few more.
+
+You'll see that wherever I go, I can use pwd to find out the location where I am.
+

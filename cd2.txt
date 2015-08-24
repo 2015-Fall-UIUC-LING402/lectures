@@ -1,0 +1,90 @@
+Let's take a look at command line concepts: 
+
+Understanding complex relative paths using . and ..
+
+$ cd kenlm/util/stream
+$ pwd
+/home/lanes/kenlm/util/stream
+
+Now, let's look at one example of a relative path that uses both . and .. multiple times
+
+Note that the following example is intentionally complex, deliberately made convoluted to illustrate how . and .. can be used within other paths. It may be a while before you encounter an example that's this complex in real life, but it's good to understand what's going on.
+
+$ cd ../double-conversion/./../../lm/./wrappers/../builder/
+
+$ pwd
+/home/lanes/kenlm/lm/builder
+
+Now let's go back and unpack that messy path.
+
+$ cd /home/lanes/kenlm/util/stream
+$ pwd
+/home/lanes/kenlm/util/stream
+
+$ ../double-conversion/./../../lm/./wrappers/../builder/ ^C
+
+.. refers to the parent of the current working directory. In our case, the parent is the util directory. 
+
+../double-conversion is a subdirectory of util. 
+
+$ cd ../double-conversion
+$ pwd
+/home/lanes/kenlm/util/double-conversion
+
+Its absolute path is /home/lanes/kenlm/util/double-conversion
+
+$ cd /home/lanes/kenlm/util/stream
+
+. is another name for the current directory. 
+
+$ cd ../double-conversion/.
+
+That means that ../double-conversion/. means exactly the same thing as ../double-conversion
+
+$ pwd
+/home/lanes/kenlm/util/double-conversion
+
+The parent of double-conversion is util. The parent of util is kenlm. 
+
+$ cd /home/lanes/kenlm/util/stream
+$ cd ../double-conversion/./../..
+$ pwd
+/home/lanes/kenlm
+
+So, ../double-conversion/./../.. refers to /home/lanes/kenlm
+
+$ cd /home/lanes/kenlm/util/stream
+$ cd ../double-conversion/./../../lm
+$ pwd
+/home/lanes/kenlm/lm
+
+lm is a subdirectory of kenlm, so ../double-conversion/./../../lm refers to /home/lanes/kenlm/lm
+
+$ cd /home/lanes/kenlm/util/stream
+$ cd ../double-conversion/./../../lm/.
+$ pwd
+/home/lanes/kenlm/lm
+
+And because . refers to the current directory, ../double-conversion/./../../lm/. is the same as ../double-conversion/./../../lm, also referring to /home/lanes/kenlm/lm
+
+$ cd /home/lanes/kenlm/util/stream
+$ cd ../double-conversion/./../../lm/./wrappers
+$ pwd
+/home/lanes/kenlm/lm/wrappers
+
+wrappers is a subdirectory of lm, so ../double-conversion/./../../lm/./wrappers refers to /home/lanes/kenlm/lm/wrappers
+
+$ cd /home/lanes/kenlm/util/stream
+$ cd ../double-conversion/./../../lm/./wrappers/..
+$ pwd
+/home/lanes/kenlm/lm
+
+.. refers to the parent of the current working directory, so ../double-conversion/./../../lm/./wrappers/.. refers to /home/lanes/kenlm/lm
+
+$ cd /home/lanes/kenlm/util/stream
+$ cd ../double-conversion/./../../lm/./wrappers/../builder
+$ pwd
+/home/lanes/kenlm/lm/builder
+
+And finally, builder is a subdirectory of lm, so ../double-conversion/./../../lm/./wrappers/../builder refers to /home/lanes/kenlm/lm/builder
+

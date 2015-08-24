@@ -1,0 +1,81 @@
+Let's take a look at command line basics: mkdir
+
+mkdir is used to create directories.
+
+$ mkdir src
+
+After using mkdir to create a directory, we can use the ls command to verify that the directory was succesfully created.
+
+$ ls
+
+src
+
+Let's try again. This time let's ask mkdir to be verbose.
+
+$ mkdir -v bin
+
+∴ mkdir: created directory `bin'
+
+By calling mkdir with the -v flag, mkdir prints a message for each created directory.
+We can of course still use ls to verify that the directory was created.
+
+$ ls
+
+bin src
+
+mkdir can also be used to create multiple directories at one time.
+
+$ mkdir doc tests
+
+$ ls 
+bin doc src tests
+
+If you attempt to create a directory, and a directory with that name already exists, mkdir will produce an error message.
+
+$ mkdir bin
+
+mkdir: cannot create directory `bin': File exists
+
+In the previous examples, we created directories directly within the current working directory. It is also possible to use mkdir to create directories elsewhere.
+
+$ mkdir src/edu
+
+This command creates a subdirectory called edu inside the src directory. This behavior can be extremely useful. However, be advised that if the parent directory does not exist, mkdir will produce an error message and will fail to create the subdirectory.
+
+$ mkdir examples/simple
+
+mkdir: cannot create directory `examples/simple': No such file or directory
+
+This command failed because the examples directory doesn't exist.
+
+There is a solution. Let's take a look at the manual for mkdir to find it.
+
+$ man mkdir
+
+The -p flag instructs mkdir to make parent directories as needed.
+
+$ mkdir -v -p examples/simple
+mkdir: created directory `examples'
+mkdir: created directory `examples/simple'
+
+The -p flag can also be used so that mkdir doesn't complain if the directory already exists. Recall that we already created a directory called bin.
+
+$ ls
+bin doc examples src tests
+
+As we saw earlier, if we try to create a directory that already exists, mkdir will normally fail. 
+
+$ mkdir bin
+mkdir: cannot create directory `bin': File exists
+
+But, by calling mkdir with the -p flag, mkdir will silently succeed.
+
+$ mkdir -p bin
+
+In all of the examples so far, we have asked mkdir to create directories within the current working directory. We can alternatively call mkdir using absolute paths.
+
+$ mkdir /home/lanes/code
+
+$ man mkdir
+
+mkdir is an essential Linux command that you will use frequently. You should practice using it to create directories in your current working directory and elsewhere. While you may never use the -z or -m flags, you should learn to use the -p flag.

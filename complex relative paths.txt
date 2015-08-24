@@ -1,0 +1,62 @@
+Let's take a look at command line concepts: 
+
+Understanding complex relative paths using . and ..
+
+$ cd kenlm/util/stream
+$ pwd
+/home/lanes/kenlm/util/stream
+
+Now, let's look at one example of a relative path that uses both . and .. multiple times
+
+$ cd ../double-conversion/./../../lm/./wrappers/../builder/
+
+$ pwd
+/home/lanes/kenlm/lm/builder
+
+Now let's go back and take a closer look at this complex relative path.
+
+# !l
+
+We'll begin by visualizing the directory tree in which we're operating. 
+
+The directory tree looks like this.
+
+For convenience in keeping track of subdirectories, I have color-coded the subdirectories we'll be discussing.
+
+# Move slide
+
+The current working directory is /home/lanes/kenlm/util/stream
+
+Notice that I've color-coded the names in this path to match the corresponding subdirectories in the directory tree.
+
+# Move slide
+
+Now let's look at our complex relative path.
+
+Again, notice that I've color-coded the names in this relative path to match the corresponding subdirectories in the directory tree.
+
+.. (which you see here in red) refers to the parent of the current working directory. In our case, the parent is the util directory (which is also drawn in red in the tree) 
+
+double-conversion is a subdirectory of util. Thus, given that stream is the current working directory, ../double-conversion refers to the subdirectory colored gold in the tree: /home/lanes/kenlm/util/double-conversion
+
+. is another name for the current directory. 
+
+That means that ../double-conversion/. means exactly the same thing as ../double-conversion
+
+
+The parent of double-conversion is util. Thus, ../double-conversion/./../.. refers to the red node in the tree, whose absolute path is /home/lanes/kenlm/util.
+
+The parent of util is kenlm. So, ../double-conversion/./../.. refers to /home/lanes/kenlm, which we see colored orange in the tree.
+
+lm, which you see in blue, is a subdirectory of kenlm, so ../double-conversion/./../../lm refers to /home/lanes/kenlm/lm
+
+And because . (which we see here in blue) refers to the current directory, ../double-conversion/./../../lm/. is the same as ../double-conversion/./../../lm, also referring to /home/lanes/kenlm/lm
+
+wrappers is a subdirectory of lm, so ../double-conversion/./../../lm/./wrappers refers to /home/lanes/kenlm/lm/wrappers
+
+
+.. (which we see here in blue) refers to the parent of the current working directory, so ../double-conversion/./../../lm/./wrappers/.. refers to /home/lanes/kenlm/lm
+
+# Move slide
+
+And finally, builder is a subdirectory of lm, so ../double-conversion/./../../lm/./wrappers/../builder refers to /home/lanes/kenlm/lm/builder
