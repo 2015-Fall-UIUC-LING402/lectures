@@ -1,0 +1,56 @@
+1
+00:00:00,650 --> 00:00:05,470
+Let's take a look at command line basics:
+pwd
+
+2
+00:00:05,470 --> 00:00:08,660
+pwd is one of the simple commands that you
+need to learn
+
+3
+00:00:08,660 --> 00:00:14,449
+pwd stands for print working directory
+
+4
+00:00:14,449 --> 00:00:21,240
+This command gives us the location where we're
+currently located in the directory structure
+
+5
+00:00:21,240 --> 00:00:29,650
+Let's take a look at the manual page
+
+6
+00:00:29,650 --> 00:00:33,130
+pwd prints the name of the current working
+directory
+
+7
+00:00:33,130 --> 00:00:41,780
+There are a couple of options, which you usually
+won't need to use.
+
+8
+00:00:41,780 --> 00:00:46,170
+When we run pwd, currently, we see that I
+am in my home directory
+
+9
+00:00:46,170 --> 00:00:56,070
+We can explore other places in the file system
+and use pwd to identify where we are.
+
+10
+00:00:56,070 --> 00:01:05,390
+Let's use the cd command to go somewhere else.
+
+11
+00:01:05,390 --> 00:01:21,659
+Let's try a few more.
+
+12
+00:01:21,659 --> 00:01:27,710
+You'll see that wherever I go, I can use pwd
+to find out the location where I am.
+

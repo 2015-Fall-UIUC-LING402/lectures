@@ -1,0 +1,131 @@
+1
+00:00:02,139 --> 00:00:06,279
+Let's take a look at shell script basics:
+positional parameters
+
+2
+00:00:06,279 --> 00:00:10,410
+When writing shell scripts, there is often
+a need to accept one or more command line
+
+3
+00:00:10,410 --> 00:00:13,570
+parameters from the user at the time the script
+is executed.
+
+4
+00:00:13,570 --> 00:00:38,100
+Let's create a very basic shell script. This
+script will print a simple message.
+
+5
+00:00:38,100 --> 00:00:43,269
+In order to run a new script, we have to modify
+the permission settings for the script file
+
+6
+00:00:43,269 --> 00:00:58,420
+to enable the script to be executed.
+
+7
+00:00:58,420 --> 00:01:03,629
+This command enables execution permission
+for the user and group associated with the
+
+8
+00:01:03,629 --> 00:01:12,810
+file. Next, let's try running the script
+
+9
+00:01:12,810 --> 00:01:17,810
+The script ran, printing our simple message.
+Now let's take a look at our first positional
+
+10
+00:01:17,810 --> 00:01:26,729
+parameter: $0. Within a shell script, $0 contains
+the name of the shell script, as it was called
+
+11
+00:01:26,729 --> 00:01:52,110
+when the script was executed.
+
+12
+00:01:52,110 --> 00:01:58,359
+We see that our script successfully obtained
+and printed the name of the script.
+
+13
+00:01:58,359 --> 00:02:12,200
+If we call the script with an absolute path,
+$0 will contain the value of that full absolute
+
+14
+00:02:12,200 --> 00:02:17,730
+path.
+
+15
+00:02:17,730 --> 00:02:24,319
+Now let's modify the script to accept an additional
+command line argument:
+
+16
+00:02:24,319 --> 00:02:45,310
+After making this modification, our script
+will now accept a single command line argument.
+
+17
+00:02:45,310 --> 00:02:50,920
+Note that bash processed the provided command
+line argument and made it available to our
+
+18
+00:02:50,920 --> 00:02:56,890
+script as a variable. We didn't have to declare
+the variable. Bash does that for us. Let's
+
+19
+00:02:56,890 --> 00:03:02,739
+look at that script again:
+
+20
+00:03:02,739 --> 00:03:09,019
+The value of the command line argument can
+be accessed using the $1 variable.
+
+21
+00:03:09,019 --> 00:03:22,930
+Shell scripts can accept more than one argument.
+
+22
+00:03:22,930 --> 00:05:33,640
+Bash supports multiple positional parameters.
+
+23
+00:05:33,640 --> 00:05:39,040
+Bash actually supports more than 9 positional
+parameters. However, to access them you will
+
+24
+00:05:39,040 --> 00:05:50,250
+need to use the curly brace syntax for accessing
+bash variables. Instead of simply typing $ and
+
+25
+00:05:50,250 --> 00:06:13,000
+then the variable name, the variable name
+is surrounded by curly braces.
+
+26
+00:06:13,000 --> 00:06:18,560
+We can also ask bash how many positional parameters
+were supplied by the user. This information
+
+27
+00:06:18,560 --> 00:06:30,960
+is provided by 
+
+28
+00:06:30,960 --> 00:06:37,910
+the $# variable.
+

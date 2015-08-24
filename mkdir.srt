@@ -1,0 +1,330 @@
+1
+00:00:00,000 --> 00:00:02,000
+Let's take a look at command line basics: mkdir
+
+2
+00:00:03,000 --> 00:00:05,000
+
+
+3
+00:00:06,000 --> 00:00:08,000
+mkdir is used to create directories.
+
+4
+00:00:09,000 --> 00:00:11,000
+
+
+5
+00:00:12,000 --> 00:00:14,000
+$ mkdir src
+
+6
+00:00:15,000 --> 00:00:17,000
+
+
+7
+00:00:18,000 --> 00:00:20,000
+After using mkdir to create a directory, we can use the ls command to verify that the directory was succesfully created.
+
+8
+00:00:21,000 --> 00:00:23,000
+
+
+9
+00:00:24,000 --> 00:00:26,000
+$ ls
+
+10
+00:00:27,000 --> 00:00:29,000
+
+
+11
+00:00:30,000 --> 00:00:32,000
+src
+
+12
+00:00:33,000 --> 00:00:35,000
+
+
+13
+00:00:36,000 --> 00:00:38,000
+Let's try again. This time let's ask mkdir to be verbose.
+
+14
+00:00:39,000 --> 00:00:41,000
+
+
+15
+00:00:42,000 --> 00:00:44,000
+$ mkdir -v bin
+
+16
+00:00:45,000 --> 00:00:47,000
+
+
+17
+00:00:48,000 --> 00:00:50,000
+mkdir: created directory `bin'
+
+18
+00:00:51,000 --> 00:00:53,000
+
+
+19
+00:00:54,000 --> 00:00:56,000
+By calling mkdir with the -v flag, mkdir prints a message for each created directory.
+
+20
+00:00:57,000 --> 00:00:59,000
+We can of course still use ls to verify that the directory was created.
+
+21
+00:01:00,000 --> 00:01:02,000
+
+
+22
+00:01:03,000 --> 00:01:05,000
+$ ls
+
+23
+00:01:06,000 --> 00:01:08,000
+
+
+24
+00:01:09,000 --> 00:01:11,000
+bin src
+
+25
+00:01:12,000 --> 00:01:14,000
+
+
+26
+00:01:15,000 --> 00:01:17,000
+mkdir can also be used to create multiple directories at one time.
+
+27
+00:01:18,000 --> 00:01:20,000
+
+
+28
+00:01:21,000 --> 00:01:23,000
+$ mkdir doc tests
+
+29
+00:01:24,000 --> 00:01:26,000
+
+
+30
+00:01:27,000 --> 00:01:29,000
+$ ls 
+
+31
+00:01:30,000 --> 00:01:32,000
+bin doc src tests
+
+32
+00:01:33,000 --> 00:01:35,000
+
+
+33
+00:01:36,000 --> 00:01:38,000
+If you attempt to create a directory, and a directory with that name already exists, mkdir will produce an error message.
+
+34
+00:01:39,000 --> 00:01:41,000
+
+
+35
+00:01:42,000 --> 00:01:44,000
+$ mkdir bin
+
+36
+00:01:45,000 --> 00:01:47,000
+
+
+37
+00:01:48,000 --> 00:01:50,000
+mkdir: cannot create directory `bin': File exists
+
+38
+00:01:51,000 --> 00:01:53,000
+
+
+39
+00:01:54,000 --> 00:01:56,000
+In the previous examples, we created directories directly within the current working directory. It is also possible to use mkdir to create directories elsewhere.
+
+40
+00:01:57,000 --> 00:01:59,000
+
+
+41
+00:02:00,000 --> 00:02:02,000
+$ mkdir src/edu
+
+42
+00:02:03,000 --> 00:02:05,000
+
+
+43
+00:02:06,000 --> 00:02:08,000
+This command creates a subdirectory called edu inside the src directory. This behavior can be extremely useful. However, be advised that if the parent directory does not exist, mkdir will produce an error message and will fail to create the subdirectory.
+
+44
+00:02:09,000 --> 00:02:11,000
+
+
+45
+00:02:12,000 --> 00:02:14,000
+$ mkdir examples/simple
+
+46
+00:02:15,000 --> 00:02:17,000
+
+
+47
+00:02:18,000 --> 00:02:20,000
+mkdir: cannot create directory `examples/simple': No such file or directory
+
+48
+00:02:21,000 --> 00:02:23,000
+
+
+49
+00:02:24,000 --> 00:02:26,000
+This command failed because the examples directory doesn't exist.
+
+50
+00:02:27,000 --> 00:02:29,000
+
+
+51
+00:02:30,000 --> 00:02:32,000
+There is a solution. Let's take a look at the manual for mkdir to find it.
+
+52
+00:02:33,000 --> 00:02:35,000
+
+
+53
+00:02:36,000 --> 00:02:38,000
+$ man mkdir
+
+54
+00:02:39,000 --> 00:02:41,000
+
+
+55
+00:02:42,000 --> 00:02:44,000
+The -p flag instructs mkdir to make parent directories as needed.
+
+56
+00:02:45,000 --> 00:02:47,000
+
+
+57
+00:02:48,000 --> 00:02:50,000
+$ mkdir -v -p examples/simple
+
+58
+00:02:51,000 --> 00:02:53,000
+mkdir: created directory `examples'
+
+59
+00:02:54,000 --> 00:02:56,000
+mkdir: created directory `examples/simple'
+
+60
+00:02:57,000 --> 00:02:59,000
+
+
+61
+00:03:00,000 --> 00:03:02,000
+The -p flag can also be used so that mkdir doesn't complain if the directory already exists. Recall that we already created a directory called bin.
+
+62
+00:03:03,000 --> 00:03:05,000
+
+
+63
+00:03:06,000 --> 00:03:08,000
+$ ls
+
+64
+00:03:09,000 --> 00:03:11,000
+bin doc examples src tests
+
+65
+00:03:12,000 --> 00:03:14,000
+
+
+66
+00:03:15,000 --> 00:03:17,000
+As we saw earlier, if we try to create a directory that already exists, mkdir will normally fail. 
+
+67
+00:03:18,000 --> 00:03:20,000
+
+
+68
+00:03:21,000 --> 00:03:23,000
+$ mkdir bin
+
+69
+00:03:24,000 --> 00:03:26,000
+mkdir: cannot create directory `bin': File exists
+
+70
+00:03:27,000 --> 00:03:29,000
+
+
+71
+00:03:30,000 --> 00:03:32,000
+But, by calling mkdir with the -p flag, mkdir will silently succeed.
+
+72
+00:03:33,000 --> 00:03:35,000
+
+
+73
+00:03:36,000 --> 00:03:38,000
+$ mkdir -p bin
+
+74
+00:03:39,000 --> 00:03:41,000
+
+
+75
+00:03:42,000 --> 00:03:44,000
+In all of the examples so far, we have asked mkdir to create directories within the current working directory. We can alternatively call mkdir using absolute paths.
+
+76
+00:03:45,000 --> 00:03:47,000
+
+
+77
+00:03:48,000 --> 00:03:50,000
+$ mkdir /home/lanes/code
+
+78
+00:03:51,000 --> 00:03:53,000
+
+
+79
+00:03:54,000 --> 00:03:56,000
+$ man mkdir
+
+80
+00:03:57,000 --> 00:03:59,000
+
+
+81
+00:04:00,000 --> 00:04:02,000
+mkdir is an essential Linux command that you will use frequently. You should practice using it to create directories in your current working directory and elsewhere. While you may never use the -z or -m flags, you should learn to use the -p flag.
+
+82
+00:04:03,000 --> 00:04:05,000
+
+
+83
+00:04:06,000 --> 00:04:08,000

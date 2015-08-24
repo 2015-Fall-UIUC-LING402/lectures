@@ -1,0 +1,275 @@
+1
+00:00:00,530 --> 00:00:05,000
+Let's take a look at command line basics:
+ls and cd
+
+2
+00:00:05,000 --> 00:00:09,349
+ls and cd are two of the most commonly used
+commands.
+
+3
+00:00:09,349 --> 00:00:12,900
+Let's take a look.
+
+4
+00:00:12,900 --> 00:00:18,660
+If I run ls with no arguments, it's going
+to display the contents of the current working
+
+5
+00:00:18,660 --> 00:00:19,660
+directory.
+
+6
+00:00:19,660 --> 00:00:26,570
+So, we have just seen that in this directory,
+there is a single subdirectory called Homeworks.
+
+7
+00:00:26,570 --> 00:00:39,190
+ls also accepts an argument.
+
+8
+00:00:39,190 --> 00:00:43,510
+When I provide an argument to ls, it will
+list the contents of that directory rather
+
+9
+00:00:43,510 --> 00:00:44,760
+than the current directory.
+
+10
+00:00:44,760 --> 00:00:52,620
+So here we see there are several subdirectories
+within the /usr directory.
+
+11
+00:00:52,620 --> 00:00:56,729
+Let's take a look at the root.
+
+12
+00:00:56,729 --> 00:01:01,909
+So this is the root of the file system.
+
+13
+00:01:01,909 --> 00:01:04,370
+Now let's take a look at cd.
+
+14
+00:01:04,370 --> 00:01:07,340
+cd is used to change directories.
+
+15
+00:01:07,340 --> 00:01:10,909
+So currently I am in my home directory.
+
+16
+00:01:10,909 --> 00:01:17,409
+We can verify this by running pwd to print
+the current working directory.
+
+17
+00:01:17,409 --> 00:01:22,899
+We see that this is my home directory.
+
+18
+00:01:22,899 --> 00:01:26,159
+Now let's use cd to change to a different
+directory.
+
+19
+00:01:26,159 --> 00:01:28,360
+So let's go to /usr
+
+20
+00:01:28,360 --> 00:01:36,770
+Now, if I run ls with no commands, with no
+parameters, it's going to print the contents
+
+21
+00:01:36,770 --> 00:01:42,100
+of the current working directory, which is
+/usr.
+
+22
+00:01:42,100 --> 00:01:55,710
+If I run cd with no arguments, it will take
+me back to my home directory.
+
+23
+00:01:55,710 --> 00:02:04,549
+So keep in mind that both cd and ls can be
+run with no parameters.
+
+24
+00:02:04,549 --> 00:02:10,869
+If ls is run with no parameters, it will print
+the contents of the current working directory.
+
+25
+00:02:10,869 --> 00:02:20,430
+If cd is run with no parameters, it will take
+you to your home directory.
+
+26
+00:02:20,430 --> 00:02:29,950
+If ls is run with a parameter, it will display
+the contents of that directory.
+
+27
+00:02:29,950 --> 00:02:38,890
+If cd is run with a parameter, you will change
+to that directory, and the directory that
+
+28
+00:02:38,890 --> 00:02:57,580
+you provided as the argument will become your
+new current working directory.
+
+29
+00:02:57,580 --> 00:03:06,099
+So just now, I used cd to change to a directory
+called /bin, and once inside that directory,
+
+30
+00:03:06,099 --> 00:03:10,610
+I ran ls to list the contents.
+
+31
+00:03:10,610 --> 00:03:16,959
+This directory contains a lot of executable
+files.
+
+32
+00:03:16,959 --> 00:03:32,819
+Now let's go back to our home directory, and
+look at the manual page for ls.
+
+33
+00:03:32,819 --> 00:03:35,870
+ls has quite a few options.
+
+34
+00:03:35,870 --> 00:03:44,430
+Many of them, you'll never use but there are
+a few that are definitely very useful.
+
+35
+00:03:44,430 --> 00:03:49,180
+To begin with let's take a look at the -a
+command.
+
+36
+00:03:49,180 --> 00:03:56,549
+Looking at the manual, you can see that by
+default ls will ignore entries whose names
+
+37
+00:03:56,549 --> 00:04:02,730
+begin with a period.
+
+38
+00:04:02,730 --> 00:04:08,340
+In the home directory, we run ls and it appears
+that there is only one item.
+
+39
+00:04:08,340 --> 00:04:18,039
+We run ls -a, we see that there are in fact
+a number of additional files that begin with
+
+40
+00:04:18,039 --> 00:04:19,810
+the period.
+
+41
+00:04:19,810 --> 00:04:31,840
+These files are all ignored unless the -a
+flag is provided to ls.
+
+42
+00:04:31,840 --> 00:04:45,520
+-a and --all are two ways of typing the same
+thing.
+
+43
+00:04:45,520 --> 00:04:50,060
+You can see this in the manual page; that
+they are provided on the same line.
+
+44
+00:04:50,060 --> 00:04:55,900
+And that's the way, that's the correct way
+to interpret items like this in a manual page.
+
+45
+00:04:55,900 --> 00:04:59,919
+That when the flags are on the same line,
+that means that's two ways of specifying the
+
+46
+00:04:59,919 --> 00:05:02,000
+same thing.
+
+47
+00:05:02,000 --> 00:05:10,180
+So let's take a look at some other options
+of ls.
+
+48
+00:05:10,180 --> 00:05:25,810
+One very commonly used flag is the -l flag,
+for long listing format.
+
+49
+00:05:25,810 --> 00:05:34,300
+ls -l is going to provide us with additional
+pieces of information, including the permissions
+
+50
+00:05:34,300 --> 00:05:47,160
+of the file, the owner of the file, the group
+of the file, the size of the file, and the
+
+51
+00:05:47,160 --> 00:06:02,099
+date and time that the file was accessed or
+created.
+
+52
+00:06:02,099 --> 00:06:10,050
+Another flag commonly used in conjunction
+with the -l flag is -h.
+
+53
+00:06:10,050 --> 00:06:23,039
+-h prints the file sizes in human readable
+format
+
+54
+00:06:23,039 --> 00:06:34,300
+Note that when I'm providing I can bunch them
+together, or separate them out, and note that
+
+55
+00:06:34,300 --> 00:06:35,990
+we have a difference here.
+
+56
+00:06:35,990 --> 00:07:04,930
+We've gone from 4096 to 4.0 kilobytes.
+
+57
+00:07:04,930 --> 00:07:18,580
+There is a large number of options for ls,
+and sometimes it's useful to ask ls to sort
+
+58
+00:07:18,580 --> 00:07:37,190
+by file size, and other options.
+
+59
+00:07:37,190 --> 00:07:37,770
+That's all for now.
+
