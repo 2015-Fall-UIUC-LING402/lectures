@@ -1,0 +1,34 @@
+Let's take a look at command line concepts: 
+
+Using file to determine a file's type
+
+Let's take a look.
+
+$ man file
+
+The file command accepts an file name as an argument.
+
+The command attempts to determine the type of the specified file.
+
+$ file /usr/local
+
+Using file, we observe that /usr/local is a directory.
+
+Great. That's exactly what we would expect.
+
+Let's look at some more files, and use the file command to determine their respective types.
+
+$ file /usr/share/man/man1/mailq.1.gz
+
+The above invocation of file tells us that mailq.1.gz is comprised of data that was compressed using gzip.
+
+$ file kenlm/LICENSE
+
+Here, we see that LICENSE is a plain text file, encoded using ASCII.
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+
+

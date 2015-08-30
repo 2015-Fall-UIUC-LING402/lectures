@@ -1,0 +1,16 @@
+Let's take a look at command line basics: 
+
+Using exit to end a terminal session.
+
+
+When you are done at the command line, it is good practice to explicitly terminate your bash terminal session. This is done using the command exit.
+
+$ exit
+
+After you execute this command, your bash session ends. If you were connected to a remote server via ssh, executing the exit command also terminates your ssh session.
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+

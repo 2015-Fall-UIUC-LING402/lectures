@@ -1,0 +1,56 @@
+Let's take a look at command line basics: 
+
+Using up and down arrow keys to navigate the command history.
+
+
+Let's begin by running a few simple commands:
+
+We'll start by running a command to see the current date and time:
+
+$ date
+
+Next, we'll print a simple message.
+
+$ echo "Hello, world"
+
+And next, let's display a calendar of the current month:
+
+$ cal
+
+
+When working at the command line, it is likely that you may want to run a command again.
+
+Bash provides a simple mechanism for navigating the commands that you have used recently: the up arrow and the down arrow.
+
+Pressing the up arrow will instruct bash to recall the previous command from the list of recently-used commands.
+
+Let's try pressing the up arrow.
+
+As you can see, the most recently used command now appears.
+
+Let's try pressing the up arrow again.
+
+The next most recently-used command, which in this case was echo, now appears. 
+
+Let's try pressing the up arrow again.
+
+The next most recently-used command, which in this case was date, now appears. 
+
+Just as we can use the up arrow to navigate backwards in time through the command history, we can also use the down arrow to navigate forwards in time through the command history.
+
+Let's try pressing the down arrow.
+
+Doing so takes us forward one command, to the echo command.
+
+Let's try pressing the down arrow again.
+
+Doing so again takes us forward one command, this time to the cal command.
+
+And finally, let's press the down arrow one more time.
+
+Doing so takes us back to an empty command line. This corresponds with where we were before we first pressed the up arrow.
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+

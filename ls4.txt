@@ -1,0 +1,83 @@
+Let's take a look at command line basics: 
+
+Identifying and understanding symbolic links
+
+Let's take a look.
+
+$ ls /usr/bin/python
+
+So far, everything looks normal. 
+
+/usr/bin/python is a file. 
+
+More specifically, we can use this file to invoke the python interpret.
+
+Let's look more closely at this file:
+
+$ ls -l /usr/bin/python
+
+In the above invocation of ls, we used the -l flag to direct ls to use the long listing format.
+
+Notice that in this long listing, there is an arrow.
+
+The arrow means that /usr/bin/python is not a regular file.
+
+Instead, it is a symbolic link that points to another file.
+
+In this case /usr/bin/python points to the file python2.7 
+
+To be more precise, it points to /usr/bin/python2.7
+
+We can confirm that /usr/bin/python is a symbolic link by invoking the program file.
+
+$ man file
+
+File can be used to determine type of a file.
+
+$ file /usr/bin/python
+
+This confirms that /usr/bin/python is a symbolic link.
+
+Let's take a look at /usr/bin/python2.7
+
+$ file /usr/bin/python2.7
+
+We see now that /usr/bin/python2.7 is an actual executable file.
+
+So, when we type python, the file system redirects our call so that python2.7 is called instead.
+
+
+Now let's look at a slightly more complex example.
+
+$ ls -l /usr/bin/emacs
+
+$ file /usr/bin/emacs
+
+We see that /usr/bin/emacs is a symbolic link to /etc/alternatives/emacs. 
+
+OK, that's a little strange. Normally, executable files are located in /usr/bin, not /etc.
+
+Let's take a look at /etc/alternatives/emacs.
+
+$ ls -l /etc/alternatives/emacs
+
+$ file /etc/alternatives/emacs
+
+Aha. We have another symbolic link.
+
+/etc/alternatives/emacs actually is a symbolic link to /usr/bin/emacs24-x
+
+$ file /usr/bin/emacs24-x
+
+So, when we run /usr/bin/emacs, the system redirects our call twice - first to /etc/alternatives/emacs, and then finally to /usr/bin/emacs24-x.
+
+In conclusion, symbolic links (like shortcuts in Windows and aliases in the Mac OS) provide a mechanism for referring to another file.
+
+Symbolic links can be identified easily by using ls with the -l flag, and also by using the file command.
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+
+

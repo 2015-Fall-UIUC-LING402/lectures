@@ -1,0 +1,74 @@
+Let's take a look at command line basics: 
+
+Using cd to navigate using ~
+
+Let's take a look at where we are - the current working directory.
+
+$ pwd
+
+We are currently located in the home directory.
+
+Each user has a unique home directory.
+
+The path of the home directory can also be observed by printing the value stored in the $HOME environment variable.
+
+$ echo $HOME
+
+Let's look and see what other users have home directories on this system:
+
+$ ls /home
+
+Navigating to or referring to a user's home directory is so common, there is a special shorthand syntax for doing so: ~ 
+
+The notation ~USERNAME refers to the home directory for USERNAME.
+
+For example, let's try navigating to the home directory for the user bryce2.
+
+$ cd ~bryce2
+
+We can use pwd 
+
+$ pwd
+
+to verify that we have successfully navigated to the home directory for the user bryce2.
+
+Let's try again, with another user.
+
+$ cd ~rpd
+
+$ pwd
+
+I can also use this notation to refer to my own home directory. 
+
+My username on this system is lanes. So, I can refer to my own home directory using ~lanes.
+
+$ ls ~lanes
+
+It turns out that referring to your own home directory is even more common than referring to someone else's home directory.
+
+Consequently, there's an even shorter shorthand notation for referring to your own home directory.
+
+$ ls ~
+
+When used as a directory, a bare tilde (without an accompanying username) refers to the user's own home directory.
+
+$ cd ~
+
+$ pwd
+
+You can also use this notation to refer to files and directories within your home directory:
+
+$ cd ~/kenlm
+
+Notice that in the above invocation of cd, ~/kenlm refers to the kenlm directory that in in my home directory.
+
+$ pwd
+
+In conclusion, the notation ~USERNAME can be used to refer to the home directory associated with the specified USERNAME.
+
+And, the notation ~ can be used to refer to your own home directory.
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+

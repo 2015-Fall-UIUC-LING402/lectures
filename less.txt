@@ -1,0 +1,78 @@
+Let's take a look at command line basics:
+
+Use less to view text files
+
+When working at the command line, it is likely that you will commonly want to view the contents of various files you are working with.
+
+There are a number of programs you can use to accomplish this goal.
+
+One of the most widely used programs for viewing text files is less.
+
+$ man less
+
+Like many programs you will encounter, the name less is a play on words.
+
+Less was developed as a more fully featured replacement for an earlier text viewing application, whose name was more.
+
+less can be used to view the contents of text files.
+
+$ ls kenlm
+
+$ less kenlm/README.md
+
+Notice that unlike on Windows, on Linux, file extensions (such as .md, .txt, .zip, and .py) are not meaningful.
+
+Even though README.md has an extension, 
+
+$ file kenlm/README.md 
+
+it is still a plain text file, and can be opened by less.
+
+Likewise, even though setup.py has the extension .py, and it contains a python program, the file is still a text file, and can be opened by less.
+
+$ file kenlm/setup.py
+
+$ less kenlm/setup.py
+
+less has lots of options. 
+
+One helpful option is the display of line numbers.
+
+This option can be enabled with the -N flag.
+
+$ less -N kenlm/setup.py
+
+Let's take a look at some other files.
+
+Here is George Washington's inaugural address:
+
+$ less /usr/share/nltk_data/corpora/inaugural/1789-Washington.txt
+
+And here is Johnson's:
+
+$ less /usr/share/nltk_data/corpora/inaugural/1965-Johnson.txt 
+
+And here is Obama's:
+
+$ less /usr/share/nltk_data/corpora/inaugural/2009-Obama.txt 
+
+The text files don't have to be in English.
+
+less is capable of displaying text in other languages.
+
+For example, here's a Swadesh list for Russian:
+
+$ less /usr/share/nltk_data/corpora/swadesh/ru
+
+Less can also open more than one file at a time:
+
+When using less to view multiple files, the command :n is used to navigate to the next file, and the command :p is used to navigate to the previous file.
+
+less is one of the most commonly used programs you will encounter when using the command line. 
+
+It is well worth your while to learn how to use it, and to learn some of its more commonly-used shortcuts.
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.

@@ -1,0 +1,103 @@
+Let's take a look at command line basics: 
+
+Using cd without options to navigate to the home directory
+
+Let's take a look at where we are - the current working directory.
+
+$ pwd
+
+We are currently located in the home directory.
+
+Each user has a unique home directory.
+
+The path of the home directory can also be observed by printing the value stored in the $HOME environment variable.
+
+$ echo $HOME
+
+Now, let's navigate to a different directory.
+
+$ cd /usr/local
+
+Let's use pwd to verify that we have changed directories.
+
+$ pwd
+/usr/local
+
+Now, let's call cd again. 
+
+This time, we're going to call cd without providing a directory path.
+
+$ cd
+
+What just happened? 
+
+Normally when we call cd, we provide a relative or absolute path to a directory, and cd then takes us to that specified directory.
+
+In this case, we didn't provide a directory.
+
+So where did we go?
+
+Let's use pwd and the documentation for cd to figure out what just happened
+
+$ pwd
+/home/lanes
+
+By running pwd, we can see that cd took us to the home directory. 
+
+Each user's home directory is different. 
+
+My home directory is /home/lanes.
+
+We invoked cd without any options. 
+
+Doing so took us to the home directory.
+
+Let's look at the documentation for cd to find out why.
+
+Recall that cd is a bash builtin command. 
+
+Documentation for bash builtin commands can be accessed using the help command.
+
+$ help cd
+
+The documentation states that cd is used to 
+
+"Change the shell working directory."
+
+Specifically, cd is used to
+
+"Change the current directory to DIR"
+
+Normally, DIR is the directory provided by the user.
+
+However, the square brackets in the usage means that providing this value is optional. 
+
+In other words, users are allowed to call cd without providing a directory.
+
+When this happens, cd falls back to a default value for DIR.
+
+"The default DIR is the value of the HOME shell variable."
+
+As we saw earlier,
+
+$ echo $SHELL
+
+the HOME shell variable stores the value of the user's home directory.
+
+$ cd baz
+$ pwd
+
+Thus, calling cd without any options
+
+$ cd
+
+takes us to the home directory.
+
+$ pwd
+/home/lanes
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+

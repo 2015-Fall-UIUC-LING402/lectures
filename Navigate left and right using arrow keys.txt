@@ -1,0 +1,26 @@
+Let's take a look at command line basics: 
+
+Using left and right arrow keys to navigate within the current command
+
+
+Let's begin with a command that displays a simple message.
+
+$ echo "Hello, world"
+
+After entering this command, what can I do if I want to change what I just typed?
+
+One option would be to delete what I typed, using the backspace key, and then type something else.
+
+However, there is a more efficient option.
+
+$ echo "Hello, world"
+
+By using the left and right arrow keys, I can navigate backwards and forwards within the current command as I type.
+
+$ echo "I said hello to the world.
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+

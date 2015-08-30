@@ -1,0 +1,97 @@
+Let's take a look at command line basics: 
+
+Using cd to navigate to a directory using an absolute path
+
+Let's take a look at where we are - the current working directory.
+
+$ pwd
+/home/lanes
+
+Now let's use ls to view the contents of the current working directory.
+
+$ ls
+baz foo Homework kenlm
+
+We can use the bash builtin command cd to change directories.
+
+$ help cd
+
+To use cd, we provide the name of the directory into which we wish to navigate.
+
+$ cd /home/lanes/baz
+
+Let's use pwd to verify that we have changed directories.
+
+$ pwd
+/home/lanes/baz
+
+Notice that in the above invocation of cd, we specified the full path /home/lanes/baz. 
+
+This style of referring to a directory by its full name shows the use of cd using an absolute path. 
+
+Let's navigate somewhere else.
+
+$ cd /usr/local
+
+In the above command, the absolute path that we used was /usr/local.
+
+Notice that an absolute path always begins with a slash.
+
+The layout of the Linux directory structure is a tree. 
+
+There is a single unique root of the file system tree. 
+
+The notation / represents the root of the file system. 
+
+All directories have / as their ultimate ancestor.
+
+Every absolute path begins with /.
+
+Every absolute path specifies a sequence of CONTAINS relations, beginning with the current file or directory, and ending at the root of the file system.
+
+Let's look at another absolute path
+
+$ cd /usr/share/man
+
+We used cd to navigate to /usr/share/man. 
+
+/usr/share/man is an absolute path. 
+
+Let's decompose this absolute path to understand it better.
+
+man is a directory. We can use ls to view its contents:
+
+$ ls
+
+The parent directory of man is share. 
+
+In other words, the share directory contains the man directory. 
+
+Let's verify this by using ls to view the share directory:
+
+$ ls /usr/share
+
+The share directory contains the man directory.
+
+The parent directory of share is usr. 
+
+In other words, the usr directory contains the share directory. Let's verify this by using ls to view the usr directory:
+
+$ ls /usr
+
+The usr directory contains the share directory.
+
+And finally, the parent of usr is /. 
+
+In other words, the root directory contains the usr directory. 
+
+Let's verify this by using ls to view the contents of the root directory.
+
+$ ls /
+
+The root directory contains the usr directory.
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+

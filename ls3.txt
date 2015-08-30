@@ -1,0 +1,48 @@
+Let's take a look at command line basics: 
+
+Using ls to list the contents of a non-current directory using an absolute path
+
+Let's take a look.
+
+If I run ls with no arguments,
+
+$ ls
+
+it will display the contents of the current working directory.
+
+ls also accepts an argument.
+
+When I provide an argument to ls, 
+
+$ ls /home/lanes/kenlm
+
+it will list the contents of that directory rather than the current directory.
+
+So here we see there are a number of files and directories within the kenlm directory.
+
+If we want to see the contents of one of these subdirectories, one approach would be to use cd to navigate to that subdirectory, and then use ls to view its contents.
+
+$ cd /home/lanes/kenlm/include
+
+$ ls
+
+However, there is a faster way.
+
+Let's go back to the home directory 
+
+$ cd
+
+and try the faster way.
+
+Rather than calling cd and then calling ls, we can directly call ls, providing the directory as an argument.
+
+$ ls /home/lanes/kenlm/include
+
+In the above invocation of ls, we provided an absolute path (/home/lanes/kenlm/include) as an argument to ls.
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+
+

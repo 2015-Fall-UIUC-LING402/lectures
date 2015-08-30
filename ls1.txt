@@ -1,0 +1,38 @@
+Let's take a look at command line basics:
+
+Using ls to list the contents of the current working directory
+
+ls is one of the most commonly used commands.
+
+Let's take a look.
+
+If I run ls with no arguments, it will display the contents of the current working directory.
+
+$ ls
+
+We can now see that this directory contains five other directories: baz, foo, Homework, kenlm and zork.
+
+Let's navigate to another directory and use ls to view its contents:
+
+$ cd kenlm
+
+$ pwd
+/home/lanes/kenlm
+
+$ ls
+
+We can now see that the current working directory, kenlm, contains a number of files and directories.
+
+
+Now let's use cd to change to a different directory.
+
+$ cd /usr
+
+Now, if I run ls with no parameters, it's going to print the contents of the current working directory, which is /usr.
+
+In conclusion, invoking ls with no parameters will display the contents of the current working directory.
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+

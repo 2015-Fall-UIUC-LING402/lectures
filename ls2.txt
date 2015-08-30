@@ -1,0 +1,67 @@
+Let's take a look at command line basics: 
+
+Using ls to list the contents of a non-current directory using a relative path
+
+Let's take a look.
+
+If I run ls with no arguments,
+
+$ ls
+
+it will display the contents of the current working directory.
+
+ls also accepts an argument.
+
+When I provide an argument to ls, 
+
+$ ls kenlm
+
+it will list the contents of that directory rather than the current directory.
+
+So here we see there are a number of files and directories within the kenlm directory.
+
+If we want to see the contents of one of these subdirectories, one approach would be to use cd to navigate to that subdirectory, and then use ls to view its contents.
+
+$ cd kenlm/include
+
+$ ls
+
+However, there is a faster way.
+
+Let's go back to the home directory 
+
+$ cd
+
+and try the faster way.
+
+Rather than calling cd and then calling ls, we can directly call ls, providing the directory as an argument.
+
+$ ls kenlm/include
+
+In the above invocation of ls, we provided a relative path (kenlm/include) as an argument to ls.
+
+After doing so, ls listed the contents of the specified directory.
+
+We can also call ls using other relative paths, including those that make use of . and ..
+
+$ cd kenlm/lm
+
+$ pwd
+
+$ ls ..
+
+Recall that .. refers to the parent of the current working directory. 
+
+In this case, the parent of the current working directory is kenlm
+
+Let's try another.
+
+$ ls ../util
+
+In this case, .. refers to the parent of the current working directory (kenlm) and ../util refers to the util directory that is within the kenlm directory.
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+
+

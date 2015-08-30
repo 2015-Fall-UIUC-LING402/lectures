@@ -1,0 +1,14 @@
+Let's take a look at command line basics: 
+
+Displaying a calendar of the current month.
+
+
+At the command line, there is a simple command that you can use to display a calendar of the current month.
+
+$ cal
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+
