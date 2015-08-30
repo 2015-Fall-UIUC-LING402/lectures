@@ -1,0 +1,50 @@
+Let's take a look at command line basics:
+
+Using ln to create symbolic links
+
+$ man ln
+
+The ln command, when used with the -s flag, can be used to create symbolic links.
+ 
+Symbolic links (like shortcuts in Windows and aliases in the Mac OS) provide a mechanism for referring to another file.
+
+In its first form, ln takes two mandatory arguments.
+
+The first argument is the path to a file that already exists.
+
+The second argument is the path where you want the new symbolic link created.
+
+$ ln -s kenlm/LICENSE abc
+
+In the above invocation of ln, I created a new symbolic link called abc that points to the LICENSE file in the kenlm directory.
+
+abc is not a copy of LICENSE, it is a symbolic link to LICENSE
+
+We can verify this by using the file command to ascertain the type of abc.
+
+$ file abc
+abc: symbolic link to `kenlm/LICENSE' 
+
+We can also verify this by calling ls with the -l flag:
+
+$ ls -l
+
+The long file format shows that abc is a link, and that it points to kenlm/LICENSE.
+
+Now let's take a look at the second form of invoking ln.
+
+In the second form, we only provide the path to the file that already exists.
+
+$ ln -s kenlm/LICENSE
+
+$ ls -l
+
+When we invoke ln in this manner, providing only a single file as an argument, ln creates a symbolic link to that file with the same name, in the current working directory.
+
+The third form of invoking ln is more advanced, and can involve some additional subtleties, so we'll cover that in a separate video.
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+

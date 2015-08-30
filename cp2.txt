@@ -1,0 +1,48 @@
+Let's take a look at command line basics:
+
+Using cp to copy a single directory
+
+$ man cp
+
+The cp command can be used to copy files and directories.
+
+$ ls
+
+Let's say we want to make a copy of the kenlm directory.
+
+The first thing we might try is a simple invocation of cp.
+
+$ cp kenlm wxyz
+cp: omitting directory ‘kenlm’
+
+What just happened?
+
+We tried making a copy of the kenlm directory called wxyz.
+
+If we run ls
+
+$ ls
+
+we see that our attempt to copy the kenlm directory failed.
+
+By default, cp will not copy directories. 
+
+$ man cp
+
+To get cp to copy a directory, we must add an additional option when invoking cp.
+
+If cp is invoked with the -r flag, it will copy directories, including their contents.
+
+$ cp -r kenlm wxyz
+
+$ ls
+
+$ ls kenlm wxyz
+
+As you can see, after the above invocation of cp, the wxyz directory now exists, and is a copy of the kenlm directory.
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+

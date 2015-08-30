@@ -1,0 +1,51 @@
+Let's take a look at command line basics:
+
+Using ls with additional options
+
+
+If I run ls with no arguments, it will display the contents of the current working directory.
+
+$ ls
+
+We can now see that this directory contains five other directories: baz, foo, Homework, kenlm and zork.
+
+There are a number of additional options we can use to configure ls
+
+$ man ls
+
+One commonly used option is the -l flag. 
+
+The -l flag causes ls to use a long listing format.
+
+$ ls -l
+
+Using the long listing format shows us additional information for each file.
+
+This information includes the file type, file permissions, the owner and group associated with the file, the file size, the modification date, and the file name.
+
+$ ls -l kenlm
+
+The file sizes reported by ls -l aren't particularly readable.
+
+$ man ls
+
+By using the -h flag, ls will report file sizes in a more human readable format.
+
+Notice that when specifying multiple flags, we can either list each flag separately,
+
+$ ls -l -h kenlm
+
+or list the flags together
+
+$ ls -lh kenlm
+
+The above two commands are equivalent.
+
+There are a number of other useful flags in ls, which can be found by reading through the ls man page.
+
+$ man ls
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+

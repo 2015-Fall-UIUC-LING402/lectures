@@ -1,0 +1,183 @@
+Let's take a look at command line concepts:
+
+Using ln to create symbolic links in another directory
+
+$ man ln
+
+The ln command, when used with the -s flag, can be used to create symbolic links.
+ 
+Symbolic links (like shortcuts in Windows and aliases in the Mac OS) provide a mechanism for referring to another file.
+
+We're going to look at the third form.
+
+The first argument is the path to a file that already exists.
+
+The second argument is a directory in which you want the new symbolic link created.
+
+$ ln -s kenlm/LICENSE baz
+
+$ ls -l baz
+
+Hmm. Something's not right here.
+
+$ file baz/LICENSE
+
+The symbolic link is broken.
+
+Let's remove the broken link and try again.
+
+$ rm baz/LICENSE
+
+In the above invocation of ln, we attempted to create a symbolic link in another directory. 
+
+When we provided the first argument, it was a relative link. 
+
+This use of a relative link in the third form of ln is the cause of our broken link.
+
+There are a couple of possible solutions.
+
+The first solution is simply to use an absolute path instead of a relative path.
+
+$ ln -s /home/lanes/kenlm/LICENSE baz
+
+$ ls -l baz
+
+Now let's remove the symbolic link and try to figure out how to make a symbolic link in another directory using a relative path.
+
+$ ln -s kenlm/LICENSE baz
+
+Let's try to figure out why this link is broken.
+
+$ cd baz
+
+$ ls -l
+
+Within the baz directory, LICENSE is a symbolic link, pointing to kenlm/LICENSE.
+
+kenlm/LICENSE is a relative path.
+
+Within the baz directory, what does the relative path kenlm/LICENSE mean?
+
+Well, it would mean that there should be a subdirectory called kenlm within the current directory, and within that subdirectory there should be a file called LICENSE.
+
+There's the problem. 
+
+Is there a kenlm directory inside baz?
+
+No, there's not.
+
+The broken link is looking for something that doesn't exist. 
+
+That's why it's broken.
+
+We can confirm this by using readlink to determine the absolute path that the symbolic link is attempting to point to.
+
+$ man readlink
+
+$ readlink -m baz/LICENSE
+
+This confirms that the symbolic link is looking for a file that doesn't exist: /home/lanes/baz/kenlm/LICENSE
+
+So, what would happen if the missing file were to be created?
+
+Let's find out.
+
+To do so, let's create a directory called kenlm within the baz directory.
+
+$ pwd
+
+$ mkdir kenlm
+
+Now, let's use the touch command to create an empty file called LICENSE within our newly-created kenlm directory.
+
+$ touch kenlm/LICENSE
+
+Finally, let's see if our symbolic link is still broken.
+
+$ ls -l
+
+The symbolic link LICENSE in the baz directory is no longer broken.
+
+Why?
+
+Because the file it was looking for now exists.
+
+$ file LICENSE
+
+So, our link is no longer broken, but it's pointing to the wrong file.
+
+Specifically, it's pointing to the empty file we just created.
+
+That's not what we want at all.
+
+Let's remove the dummy files and try again.
+
+$ rm LICENSE
+$ rm kenlm/LICENSE
+$ rmdir kenlm
+
+In order to use the third form of ln to correctly create a link, it's helpful to realize two things.
+
+First, ln interprets the first argument as a string.
+
+And second, if that string represents a relative path, the file system will interpret that relative path relative to the directory in which the symbolic link is to be created.
+
+Recall from above that our broken symbolic link was looking for a kenlm directory within the baz directory.
+
+So, let's think about things relative to the baz directory
+
+From within the baz directory, what relative path can we use to refer to /home/lanes/kenlm/LICENSE?
+
+Well, kenlm and baz are both in the home directory.
+
+In other words, they have a common parent.
+
+We can refer to the parent of the current working directory as ..
+
+So, from the baz directory ../kenlm refers to /home/lanes/kenlm, and ../kenlm/LICENSE refers to the file we want.
+
+Armed with that information, let's try making that symbolic link again.
+
+$ cd
+
+$ ln -s "../kenlm/LICENSE" baz
+
+$ ls -l baz
+
+It worked!
+
+We can use readlink to confirm that the symbolic link is now pointing to the correct file.
+
+$ readlink -m baz/LICENSE
+/home/lanes/kenlm/LICENSE
+
+We have succeeded in creating a symbolic link in another directory using a relative path.
+
+To do so, we had to think about the relative path from the perspective of the directory in which the link is being created.
+
+It turns out that we can ask ln to do this change of perspective for us.
+
+$ man ln
+
+When invoked with the -r flag, ln will create the symbolic link relative to the link location.
+
+Let's remove the existing link, and give this a try.
+
+$ rm baz/LICENSE
+
+$ ln -s -r kenlm/LICENSE baz
+
+$ ls -l baz
+
+By running ls -l, we can observe that when the -r flag was passed to ln, ln correctly translated the relative path we provided (kenlm/LICENSE) into a relative path that is correct in the context of the baz directory (../kenlm/LICENSE).
+
+$ readlink -m baz/LICENSE
+/home/lanes/kenlm/LICENSE
+
+Calling readlink confirms that the symbolic link in the baz directory is indeed pointing to the correct file, /home/lanes/kenlm/LICENSE
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+

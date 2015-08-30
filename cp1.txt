@@ -1,0 +1,45 @@
+Let's take a look at command line basics:
+
+Using cp to copy a single file
+
+$ man cp
+
+The cp command can be used to copy files.
+
+cp takes two mandatory arguments.
+
+When copying a single file, the first argument is the path to the file you want to copy.
+
+The second argument is the path where you want the file copied to.
+
+$ cp kenlm/LICENSE abc
+
+In the above invocation of cp, I copied the LICENSE file from the kenlm directory; the resulting copy is a file in my current working directory, called abc.
+
+abc is a copy of LICENSE.
+
+We can use the diff command to verify that the two files are identical.
+
+$ diff --report-identical-files kenlm/LICENSE abc
+
+Another way to invoke cp is by giving cp a destination directory.
+
+$ ls
+
+For example, let's say we wanted to copy the file abc into the directory baz.
+
+$ man cp
+
+To do so, we can call cp, using abc as the source file, and baz as the destination directory.
+
+$ cp abc baz
+
+$ ls baz
+
+As you can see, after the above invocation of cp, the baz directory now contains a copy of abc.
+
+
+This work was created by Lane Schwartz.
+
+You are free to reproduce and adapt this work under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License.
+
